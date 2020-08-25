@@ -6,17 +6,24 @@
 
 class Phonebook {
 
-	public:
+	private:
 		Contact	contacts[MAX];
-		int	nb_contact;
+		int	nbContact;
 	
+	public:	
 		Phonebook(void);
+		~Phonebook(void);
 
 		void	exit(void);
 		void	add(Contact c);
 		void	search();
 		void	display(void);
 
+		int getNbContact();
+		Contact getContacts();
+
+		void setContacts(Contact contacts);
+		void setNbContact(int nbConatct);
 };
 
 #endif
