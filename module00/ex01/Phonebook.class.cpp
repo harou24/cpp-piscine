@@ -2,30 +2,36 @@
 
 Phonebook::Phonebook()
 {
-	this->nb_contact = 0;
+	this->nbContact = 0;
+}
+
+Phonebook::~Phonebook()
+{
+
 }
 
 void	Phonebook::add(Contact c)
 {
-	if (this->nb_contact == 8)
+	if (this->nbContact == 8)
 	{
 		std::cout << "No place available" << std::endl;
 		return;
 	}
-	this->contacts[this->nb_contact] = c;
-	this->nb_contact++;
+	this->contacts[this->nbContact] = c;
+	this->nbContact++;
 }
+
 
 void	Phonebook::display(void)
 {
 	int	i;
 
 	i = 0;
-	while (i < this->nb_contact)
+	while (i < this->nbContact)
 	{
-		std::cout << std::setw(10) << i << "|" << std::setw(10) << this->contacts[i].firstName;
-		std::cout << "|" << std::setw(10) << this->contacts[i].lastName;
-		std::cout << "|" << std::setw(10) << this->contacts[i].nickname << "|" << std::endl;
+		std::cout << std::setw(10) << i << "|" << std::setw(10) << this->contacts[i].getFirstName();
+		std::cout << "|" << std::setw(10) << this->contacts[i].getLastName();
+		std::cout << "|" << std::setw(10) << this->contacts[i].getNickname() << "|" << std::endl;
 		i++;
 	}
 }

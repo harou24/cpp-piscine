@@ -18,4 +18,5 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(NAME)
 
+
 re: clean all

@@ -33,3 +33,18 @@ void	Contact::display(void)
 {
 	std::cout << std::setw(10) << "| hello" << std::endl;
 }
+
+std::string		Contact::getFirstName()
+{
+	return (this->firstName);
+}
+
+std::string		Contact::getLastName()
+{
+	return (this->lastName);
+}
+
+std::string		Contact::getNickname()
+{
+	return (this->nickname);
+}
