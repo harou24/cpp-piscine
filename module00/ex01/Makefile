@@ -7,16 +7,21 @@ INC = Phonebook.class.hpp\
       Contact.class.hpp
 
 CC = clang++
-CC_FLAGS = -Wall -Wextra -Werror
+CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
 
-#OBJ := $(SRC:%cpp=%.o)
-
+OBJ := $(SRC:.cpp=.o)
 all : $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CC_FLAGS) $(SRC) $(INC)
-clean:
-	rm -f $(NAME)
+$(NAME): $(OBJ) $(INC)
+	$(CC) $(OBJ) -o $@
 
+$(OBJ): %.o: %.cpp %.hpp
+	$(CC) $(CC_FLAGS) -o $@ -c $<
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
 
 re: clean all

@@ -20,7 +20,7 @@ class Phonebook {
 		void	display(void);
 
 		int getNbContact();
-		Contact getContacts();
+		Contact getContactAtIndex(int index);
 
 		void setContacts(Contact contacts);
 		void setNbContact(int nbConatct);

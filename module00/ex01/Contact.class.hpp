@@ -25,6 +25,10 @@ public:
 	void	field(void);
 	void	display(void);
 
+	std::string	getDisplayFirstName();
+	std::string	getDisplayLastName();
+	std::string	getDisplayNickname();
+	
 	std::string	getFirstName();
 	std::string	getLastName();
 	std::string	getNickname();

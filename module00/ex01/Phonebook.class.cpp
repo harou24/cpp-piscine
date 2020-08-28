@@ -9,7 +9,6 @@ Phonebook::~Phonebook()
 {
 
 }
-
 void	Phonebook::add(Contact c)
 {
 	if (this->nbContact == 8)
@@ -29,11 +28,21 @@ void	Phonebook::display(void)
 	i = 0;
 	while (i < this->nbContact)
 	{
-		std::cout << std::setw(10) << i << "|" << std::setw(10) << this->contacts[i].getFirstName();
-		std::cout << "|" << std::setw(10) << this->contacts[i].getLastName();
-		std::cout << "|" << std::setw(10) << this->contacts[i].getNickname() << "|" << std::endl;
+		std::cout << std::setw(10) << i << "|" << std::setw(10) << this->contacts[i].getDisplayFirstName();
+		std::cout << "|" << std::setw(10) << this->contacts[i].getDisplayLastName();
+		std::cout << "|" << std::setw(10) << this->contacts[i].getDisplayNickname() << "|" << std::endl;
 		i++;
 	}
+}
+
+int		Phonebook::getNbContact()
+{
+	return (this->nbContact);
+}
+
+Contact	Phonebook::getContactAtIndex(int index)
+{
+	return (this->contacts[index]);
 }
 
 int main(void)
@@ -41,6 +50,8 @@ int main(void)
 	Phonebook	book;
 	std::string	command;
 	Contact		c;
+	int			index;
+
 	while (1)
 	{
 		std::cout << "Enter a command ADD | SEARCH | EXIT" << std::endl;
@@ -54,6 +65,13 @@ int main(void)
 		else if (command.compare("SEARCH") == 0)
 		{
 			book.display();
+			std::cout << "Choose a index : " << std::endl;
+			std::cin >> index;
+			if (index >= 0 && index < book.getNbContact())
+				book.getContactAtIndex(index).display();
+			else
+				std::cout << "Index error" << std::endl;
+
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;

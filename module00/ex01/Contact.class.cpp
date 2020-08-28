@@ -31,7 +31,17 @@ void	Contact::field(void)
 
 void	Contact::display(void)
 {
-	std::cout << std::setw(10) << "| hello" << std::endl;
+	std::cout << "First name : "<< this->firstName << std::endl;
+	std::cout << "Last name : "<< this->lastName << std::endl;
+	std::cout << "Nickname : "<< this->nickname << std::endl;
+	std::cout << "Login : "<< this->login << std::endl;
+	std::cout << "Postal address : "<< this->postalAddress << std::endl;
+	std::cout << "Email address : "<< this->emailAddress << std::endl;
+	std::cout << "Phone number : "<< this->phoneNumber << std::endl;
+	std::cout << "Birthday date : "<< this->birthdayDate << std::endl;
+	std::cout << "Favorite meal : "<< this->favoriteMeal << std::endl;
+	std::cout << "Underwear color : "<< this->underwearColor << std::endl;
+	std::cout << "Darkest secret : "<< this->darkestSecret << std::endl;
 }
 
 std::string		Contact::getFirstName()
@@ -47,4 +57,50 @@ std::string		Contact::getLastName()
 std::string		Contact::getNickname()
 {
 	return (this->nickname);
+}
+
+//
+//
+std::string		Contact::getDisplayFirstName()
+{
+	std::string displayFirstName;
+
+	if (this->firstName.length() < 10)
+		displayFirstName = this->firstName;
+	else
+	{	
+		displayFirstName = std::string(this->firstName, 0, 10);
+		displayFirstName = displayFirstName.replace(9, 1, ".");
+	}
+	return (displayFirstName);
+}
+
+std::string		Contact::getDisplayLastName()
+{
+	std::string displayLastName;
+
+	if (this->lastName.length() < 10)
+		displayLastName = this->lastName;
+	else
+	{
+		displayLastName = std::string(this->lastName, 0, 10);
+		displayLastName = displayLastName.replace(9, 1, ".");
+	}
+	return (displayLastName);
+
+}
+
+std::string		Contact::getDisplayNickname()
+{
+	std::string displayNickname;
+
+	if (this->nickname.length() < 10)
+		displayNickname = this->nickname;
+	else
+	{
+		displayNickname = std::string(this->nickname, 0, 10);
+		displayNickname = displayNickname.replace(9, 1, ".");
+	}
+	return (displayNickname);
+
 }
