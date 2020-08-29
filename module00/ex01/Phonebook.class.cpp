@@ -67,15 +67,22 @@ int main(void)
 			book.display();
 			std::cout << "Choose a index : " << std::endl;
 			std::cin >> index;
-			if (index >= 0 && index < book.getNbContact())
-				book.getContactAtIndex(index).display();
-			else
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore();
 				std::cout << "Index error" << std::endl;
+			}
+			else if (index >= 0 && index < book.getNbContact())
+				book.getContactAtIndex(index).display();
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;
 		else
+		{		
 			std::cout << "Command error, Try again !" << std::endl;
+
+		}
 		
 	}
 	return (0);
