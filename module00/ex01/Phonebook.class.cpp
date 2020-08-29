@@ -71,10 +71,11 @@ int main(void)
 				book.getContactAtIndex(index).display();
 			else
 				std::cout << "Index error" << std::endl;
-
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;
+		else
+			std::cout << "Command error, Try again !" << std::endl;
 		
 	}
 	return (0);
