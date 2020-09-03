@@ -70,8 +70,6 @@ std::string		Contact::getNickname()
 	return (this->nickname);
 }
 
-//
-//
 std::string		Contact::getDisplayFirstName()
 {
 	std::string displayFirstName;

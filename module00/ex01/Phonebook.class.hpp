@@ -21,9 +21,6 @@ class Phonebook {
 
 		int getNbContact();
 		Contact getContactAtIndex(int index);
-
-		void setContacts(Contact contacts);
-		void setNbContact(int nbConatct);
 };
 
 #endif

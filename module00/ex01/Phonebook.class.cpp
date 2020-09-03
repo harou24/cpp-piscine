@@ -64,26 +64,34 @@ int main(void)
 		}
 		else if (command.compare("SEARCH") == 0)
 		{
-			book.display();
-			std::cout << "Choose a index : " << std::endl;
-			std::cin >> index;
-			if (std::cin.fail())
+			if (book.getNbContact() == 0)
 			{
-				std::cin.clear();
-				std::cin.ignore();
-				std::cout << "Index error" << std::endl;
+				std::cout << "Phonebook is empty !" << std::endl;
 			}
-			else if (index >= 0 && index < book.getNbContact())
-				book.getContactAtIndex(index).display();
+			else
+			{
+				book.display();
+				std::cout << "Choose a index : " << std::endl;
+				std::cin >> index;
+				if (std::cin.fail())
+				{
+					std::cin.clear();
+					std::cin.ignore();
+					std::cout << "Index error" << std::endl;
+				}
+				else if (index >= 0 && index < book.getNbContact())
+					book.getContactAtIndex(index).display();
+				else
+					std::cout << "Index error !" << std::endl;
+			}
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;
 		else
 		{		
 			std::cout << "Command error, Try again !" << std::endl;
-
-		}
-		
+			break ;
+		}	
 	}
 	return (0);
 }
