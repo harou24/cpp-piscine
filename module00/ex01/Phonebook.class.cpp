@@ -75,29 +75,25 @@ int main(void)
 			if (book.getNbContact() == 0)
 			{
 				std::cout << "Phonebook is empty !" << std::endl;
+
 			}
 			else
 			{
 				book.display();
 				std::cout << "Choose a index : " << std::endl;
 				std::cin >> index;
-				if (std::cin.fail())
+				if (std::cin.fail() || !(index >= 0 && index < book.getNbContact()))
 				{
 					std::cin.clear();
-					std::cin.sync();
+					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << "Index error" << std::endl;
 				}
 				else if (index >= 0 && index < book.getNbContact())
 					book.getContactAtIndex(index).display();
-				else
-					std::cout << "Index error !i555" << std::endl;
 			}
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
 	}
 	return (0);
 }
