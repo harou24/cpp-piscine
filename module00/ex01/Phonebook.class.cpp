@@ -84,12 +84,13 @@ int main(void)
 				std::cin >> index;
 				if (std::cin.fail() || !(index >= 0 && index < book.getNbContact()))
 				{
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 					std::cout << "Index error" << std::endl;
 				}
 				else if (index >= 0 && index < book.getNbContact())
 					book.getContactAtIndex(index).display();
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 			}
 		}
 		else if (command.compare("EXIT") == 0)
