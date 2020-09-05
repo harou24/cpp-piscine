@@ -54,8 +54,16 @@ int main(void)
 
 	while (1)
 	{
+		if(std::cin.eof())
+		{
+			std::cin.clear();
+			std::cout << "If you want to play like that, all right, good bye !" << std::endl;
+			std::cin.sync();
+			break ;
+		}
+
 		std::cout << "Enter a command ADD | SEARCH | EXIT" << std::endl;
-		std::cin >> command;
+		std::getline(std::cin, command);	
 
 		if (command.compare("ADD") == 0)
 		{
@@ -76,22 +84,20 @@ int main(void)
 				if (std::cin.fail())
 				{
 					std::cin.clear();
-					std::cin.ignore();
+					std::cin.sync();
 					std::cout << "Index error" << std::endl;
 				}
 				else if (index >= 0 && index < book.getNbContact())
 					book.getContactAtIndex(index).display();
 				else
-					std::cout << "Index error !" << std::endl;
+					std::cout << "Index error !i555" << std::endl;
 			}
 		}
 		else if (command.compare("EXIT") == 0)
 			break ;
-		else
-		{		
-			std::cout << "Command error, Try again !" << std::endl;
-			break ;
-		}	
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
 	}
 	return (0);
 }
