@@ -3,13 +3,12 @@ NAME = megaphone
 SRC = megaphone.cpp
 
 CC = clang++
-CC_FLAGS = -Wall -Wextra -Werror
+CC_FLAGS = -std=c++98 -Wall -Wextra -Werror
 
-#OBJ := $(SRC:%cpp=%.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME):
 	$(CC) $(CC_FLAGS) -o $(NAME) $(SRC)
 clean:
 	rm -f $(NAME)

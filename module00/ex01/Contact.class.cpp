@@ -5,6 +5,8 @@ Contact::~Contact(void){}
 
 void	Contact::field(void)
 {
+	std::cout << "\n---------ADD A CONTACT---------\n" << std::endl;
+
 	std::cout << "Enter fist name : " << std::endl;
 	std::cin.ignore();
 	std::getline(std::cin, this->firstName);
@@ -38,10 +40,13 @@ void	Contact::field(void)
 	std::cout << "Enter darkest secret : " << std::endl;
 	std::cin.ignore();
 	std::getline(std::cin, this->darkestSecret);
+	std::cout << "\n---------------------------------\n" << std::endl;
+
 }
 
 void	Contact::display(void)
 {
+	std::cout << "\n--------CONTACT INFORMATION--------\n" << std::endl;
 	std::cout << "First name : "<< this->firstName << std::endl;
 	std::cout << "Last name : "<< this->lastName << std::endl;
 	std::cout << "Nickname : "<< this->nickname << std::endl;
@@ -53,6 +58,8 @@ void	Contact::display(void)
 	std::cout << "Favorite meal : "<< this->favoriteMeal << std::endl;
 	std::cout << "Underwear color : "<< this->underwearColor << std::endl;
 	std::cout << "Darkest secret : "<< this->darkestSecret << std::endl;
+	std::cout << "\n-----------------------------------\n" << std::endl;
+
 }
 
 std::string		Contact::getFirstName()

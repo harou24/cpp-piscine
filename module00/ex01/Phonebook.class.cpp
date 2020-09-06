@@ -13,7 +13,7 @@ void	Phonebook::add(Contact c)
 {
 	if (this->nbContact == 8)
 	{
-		std::cout << "No place available" << std::endl;
+		std::cout << "\n----No place available----\n" << std::endl;
 		return;
 	}
 	this->contacts[this->nbContact] = c;
@@ -51,18 +51,19 @@ int main(void)
 	std::string	command;
 	Contact		c;
 	int			index;
-
+	
+	std::cout << "\n----------Welcome to my Awesome Phonebook !----------\n\n" << std::endl;
 	while (1)
 	{
 		if(std::cin.eof())
 		{
 			std::cin.clear();
-			std::cout << "If you want to play like that, all right, good bye !" << std::endl;
+			std::cout << "-_-If you want to play like that, all right, good bye !-_-\n" << std::endl;
 			std::cin.sync();
 			break ;
 		}
 
-		std::cout << "Enter a command ADD | SEARCH | EXIT" << std::endl;
+		std::cout << "*** Enter a command ADD | SEARCH | EXIT ***\n" << std::endl;
 		std::getline(std::cin, command);	
 
 		if (command.compare("ADD") == 0)
@@ -74,17 +75,20 @@ int main(void)
 		{
 			if (book.getNbContact() == 0)
 			{
-				std::cout << "Phonebook is empty !" << std::endl;
+				std::cout << "Phonebook is empty !\n" << std::endl;
 
 			}
 			else
 			{
 				book.display();
-				std::cout << "Choose a index : " << std::endl;
+				std::cout << "Choose a index : \n" << std::endl;
 				std::cin >> index;
 				if (std::cin.fail() || !(index >= 0 && index < book.getNbContact()))
 				{
-					std::cout << "Index error" << std::endl;
+					if (std::cin.fail())
+						std::cout << "---Wrong input---\n" << std::endl;
+					else
+						std::cout << "---Index error---\n" << std::endl;
 				}
 				else if (index >= 0 && index < book.getNbContact())
 					book.getContactAtIndex(index).display();
@@ -94,7 +98,11 @@ int main(void)
 			}
 		}
 		else if (command.compare("EXIT") == 0)
+		{
+			std::cout << "\n----------------------Good Bye !-----------------------\n" << std::endl;
 			break ;
+
+		}
 	}
 	return (0);
 }
