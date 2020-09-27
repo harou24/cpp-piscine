@@ -2,7 +2,6 @@
 # define PONY_H
 
 # include <iostream>
-# include <iomanip>
 
 class Pony {
 
