@@ -10,6 +10,7 @@ private :
 	std::string _type;
 
 public :
+	Zombie();
 	Zombie(std::string name, std::string type);
 	~Zombie(void);
 

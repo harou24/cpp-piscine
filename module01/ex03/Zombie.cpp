@@ -7,6 +7,12 @@ Zombie::Zombie(std::string name, std::string type)
 	this->announce();
 }
 
+Zombie::Zombie()
+{
+	this->_name = "default name";
+	this->_type = "default type";
+}
+
 Zombie::~Zombie()
 {
 

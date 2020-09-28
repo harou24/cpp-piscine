@@ -8,30 +8,8 @@ class ZombieHorde {
 	private : 
 			int		_count;
 			Zombie	*_zombies;
-			const static std::string _names[10] = {
-                                                                "Alpha",
-                                                                "Beta",
-                                                                "Gamma",
-                                                                "Delta",
-                                                                "Epsilon",
-                                                                "Zeta",
-                                                                "Eta",
-                                                                "Theta",
-                                                                "Iota",
-                                                                "Kappa"
-        };
-		const static std::string _types[10] = {
-                                                                "Magic",
-                                                                "Warrior",
-                                                                "Sleepy",
-                                                                "Commando",
-                                                                "Happy",
-                                                                "Stone",
-                                                                "Crazy",
-                                                                "Special",
-                                                                "Killer",
-                                                                "Cool"
-        };
+			static std::string _names[10]; 
+			static std::string _types[10];
 
 	public :
 			ZombieHorde(int nb);
