@@ -18,14 +18,15 @@ void	Pony::feed(std::string food)
 
 void    ponyOnTheStack()
 {
-        Pony *p1 = new Pony("PonyOne");
-        p1->feed("grass");
+        Pony p1("PonyOne");
+        p1.feed("grass");
 }
 
 void    ponyOnTheHeap()
 {
         Pony *p2 = new Pony("PonyTwo");
         p2->feed("Carrot");
+		delete(p2);
 }
 
 int             main(void)
