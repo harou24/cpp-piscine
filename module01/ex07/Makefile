@@ -1,13 +1,6 @@
-NAME = unnecessary_violence
+NAME = replace
 
-SRC = Weapon.cpp\
-      HumanA.cpp\
-	  HumanB.cpp\
-	  main.cpp
-
-INC = Weapon.hpp\
-      HumanA.hpp\
-	  HumanB.hpp
+SRC = replace.cpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
@@ -15,7 +8,7 @@ CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
 OBJ := $(SRC:.cpp=.o)
 all : $(NAME)
 
-$(NAME): $(OBJ) $(INC)
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $@
 
 $(OBJ): %.o: %.cpp
@@ -26,5 +19,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm *.replace
 
 re: clean all
