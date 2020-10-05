@@ -1,6 +1,8 @@
 #ifndef FIXED_H
 # define FIXED_H
 
+#include <iostream>
+
 class Fixed {
 	private :
 			int	_fixedPointValue;
@@ -20,6 +22,6 @@ class Fixed {
 			int toInt( void ) const;
 };
 
-std::ostream &operator << (srd::ostream &output, Fixed const &f);
+std::ostream &operator << (std::ostream &output, Fixed const &f);
 
 #endif
