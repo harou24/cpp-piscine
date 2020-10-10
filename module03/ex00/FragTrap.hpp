@@ -1,6 +1,8 @@
 #ifndef FRAG_TRAP_H
 # define FRAG_TRAP_H
 
+#include <iostream>
+
 class FragTrap {
 	private :
 		unsigned int 		_hitPoints;
@@ -9,13 +11,14 @@ class FragTrap {
 		unsigned int 		_maxEnergyPoints;
 		unsigned int 		_level;
 		std::string 		_name;
-		unsigned int 		_meleeAttackDomage;
-		unsigned int 		_rangedAttackDomage;
+		unsigned int 		_meleeAttackDamage;
+		unsigned int 		_rangedAttackDamage;
 		unsigned int 		_armorReduction;
+		static std::string	_randomAttack[10];
 	
 	public :
 		FragTrap(std::string name);
-		FragTrap(const FragTrap ft);
+		FragTrap(const FragTrap &ft);
 		FragTrap& operator = (const FragTrap &ft);
 		~FragTrap();
 
@@ -23,7 +26,7 @@ class FragTrap {
 		void meleeAttack(std::string const &target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		void vaulthunter_dot_exe(std::string const &target);
+		int vaulthunter_dot_exe(std::string const &target);
 
 		unsigned int getHitPoints() const;
 		unsigned int getHitMaxPoints() const;
@@ -31,7 +34,7 @@ class FragTrap {
 		unsigned int getMaxEnergyPoints() const;
 		unsigned int getLevel() const;
 		std::string getName() const;
-		unsigned int getMeleeAtack() const;
+		unsigned int getMeleeAttack() const;
 		unsigned int getRangedAttack() const;
 		unsigned int getArmorReduction() const;
 
@@ -44,6 +47,8 @@ class FragTrap {
 		void setMeleeAttack(const unsigned int val);
 		void setRangedAttack(const unsigned int val);
 		void setArmmorReduction(const unsigned int val);
+		void display() const;
+		bool isDead() const;
 };
 
 #endif
