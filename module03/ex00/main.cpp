@@ -7,11 +7,9 @@ int main(void)
 	
 	ft.display();
 	ft2.display();
-std::srand(time(0));
-
+	std::srand(time(0));
 	while (!(ft.isDead() && ft2.isDead()))
 	{
-
 		ft.meleeAttack("Frag-two");
 		ft2.takeDamage(ft.getMeleeAttack() - ft2.getArmorReduction());
 		ft2.display();
@@ -52,6 +50,10 @@ std::srand(time(0));
 		std::cout << ft.getName() << " won the game !" << std::endl;
 	else
 		std::cout << "Equality" << std::endl;
+	ft.takeDamage(10000);
+	ft.display();
+	ft.beRepaired(20000);
+	ft.display();
 
 	return (0);
 }
