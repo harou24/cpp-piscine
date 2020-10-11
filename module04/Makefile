@@ -3,11 +3,13 @@ NAME = test
 SRC = Sorcerer.cpp\
 	  Victim.cpp\
 	  Peon.cpp\
+	  Pigeon.cpp\
 	  main.cpp
 
 INC = Sorcerer.hpp\
 	  Victim.hpp\
-	  Peon.hpp
+	  Peon.hpp\
+	  Pigeon.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
