@@ -129,3 +129,18 @@ unsigned int FragTrap::getRangedAttack() const
 {
 	return (this->_rangedAttackDamage);
 }
+
+FragTrap& FragTrap::operator = (const FragTrap &ft)
+{
+    std::cout << "Assignation operator called" << std::endl;
+	this->_name = ft._name;
+	this->_hitPoints = ft._hitPoints;
+	this->_maxHitPoints = ft._maxHitPoints;
+	this->_energyPoints = ft._energyPoints;
+	this->_maxEnergyPoints = ft._maxEnergyPoints;
+	this->_level = ft._level;
+	this->_meleeAttackDamage = ft._meleeAttackDamage;
+	this->_rangedAttackDamage = ft._rangedAttackDamage;
+	this->_armorReduction = ft._armorReduction;
+    return (*this);
+}

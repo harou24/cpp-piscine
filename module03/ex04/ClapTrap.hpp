@@ -43,11 +43,11 @@ class ClapTrap {
                 void setHitMaxPoints(const unsigned int val);
                 void setEnergyPoints(const unsigned int val);
                 void setMaxEnergyPoints(const unsigned int val);
-                void Level(const unsigned int val);
+                void setLevel(const unsigned int val);
                 void setName(const std::string name);;
                 void setMeleeAttack(const unsigned int val);
                 void setRangedAttack(const unsigned int val);
-                void setArmmorReduction(const unsigned int val);
+                void setArmorReduction(const unsigned int val);
                 void display() const;
                 bool isDead() const;
 };

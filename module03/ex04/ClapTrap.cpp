@@ -67,11 +67,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 std::cout << this->_name << " has been repaired by " << amount << "\n" <<std::endl;
 }
 
-unsigned int ClapTrap::getArmorReduction() const
-{
-	return (this->_armorReduction);
-}
-
 void ClapTrap::display() const
 {
 	std::cout << this->_name << " : " << std::endl;
@@ -87,14 +82,64 @@ bool ClapTrap::isDead() const
 		return false;
 }
 
+unsigned int ClapTrap::getHitPoints() const
+{
+	return (this->_hitPoints);
+}
+
+void ClapTrap::setHitPoints(const unsigned int val)
+{
+	this->_hitPoints = val;
+}
+
+unsigned int ClapTrap::getLevel() const
+{
+	return (this->_level);
+}
+
+void ClapTrap::setLevel(const unsigned int val)
+{
+	this->_level = val;
+}
+
+unsigned int ClapTrap::getHitMaxPoints() const
+{
+	return (this->_maxHitPoints);
+}
+
+void ClapTrap::setHitMaxPoints(const unsigned int val)
+{
+	this->_maxHitPoints = val;
+}
+
+unsigned int ClapTrap::getArmorReduction() const
+{
+	return (this->_armorReduction);
+}
+
+void ClapTrap::setArmorReduction(const unsigned int val)
+{
+	this->_armorReduction = val;
+}
+
 unsigned int ClapTrap::getMeleeAttack() const
 {
 	return (this->_meleeAttackDamage);
 }
 
+void ClapTrap::setMeleeAttack(const unsigned int val)
+{
+	this->_meleeAttackDamage = val;
+}
+
 unsigned int ClapTrap::getRangedAttack() const
 {
 	return (this->_rangedAttackDamage);
+}
+
+void ClapTrap::setRangedAttack(const unsigned int val)
+{
+	this->_rangedAttackDamage = val;
 }
 
 std::string ClapTrap::getName() const
@@ -115,4 +160,29 @@ unsigned int ClapTrap::getEnergyPoints() const
 void ClapTrap::setEnergyPoints(const unsigned int val)
 {
 	this->_energyPoints = val;
+}
+
+unsigned int ClapTrap::getMaxEnergyPoints() const
+{
+	return (this->_maxEnergyPoints);
+}
+
+void ClapTrap::setMaxEnergyPoints(const unsigned int val)
+{
+	this->_maxEnergyPoints = val;
+}
+
+ClapTrap& ClapTrap::operator = (const ClapTrap &ft)
+{
+    std::cout << "Assignation operator called" << std::endl;
+	this->_name = ft._name;
+	this->_hitPoints = ft._hitPoints;
+	this->_maxHitPoints = ft._maxHitPoints;
+	this->_energyPoints = ft._energyPoints;
+	this->_maxEnergyPoints = ft._maxEnergyPoints;
+	this->_level = ft._level;
+	this->_meleeAttackDamage = ft._meleeAttackDamage;
+	this->_rangedAttackDamage = ft._rangedAttackDamage;
+	this->_armorReduction = ft._armorReduction;
+    return (*this);
 }

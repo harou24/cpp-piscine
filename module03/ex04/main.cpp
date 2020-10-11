@@ -7,6 +7,8 @@
 int main(void)
 {
 	SuperTrap *super = new SuperTrap("Hello");
+	SuperTrap *super2 = new SuperTrap("Hello");
+	super = super2;
 	FragTrap fg("Hello");
 	super->display();
 	std::srand(time(0));

@@ -39,3 +39,17 @@ void ScavTrap::challengeNewcomer(void)
 	std::cout << "Challenge" << ScavTrap::_randomChall[index] << std::endl;
 }
 
+ScavTrap& ScavTrap::operator = (const ScavTrap &ft)
+{
+    std::cout << "Assignation operator called" << std::endl;
+	this->setName(ft.getName());
+	this->setHitPoints(ft.getHitPoints());
+	this->setHitMaxPoints(ft.getHitMaxPoints());
+	this->setEnergyPoints(ft.getEnergyPoints());
+	this->setMaxEnergyPoints(ft.getMaxEnergyPoints());
+	this->setLevel(ft.getLevel());
+	this->setMeleeAttack(ft.getMeleeAttack());
+	this->setRangedAttack(ft.getRangedAttack());
+	this->setArmorReduction(ft.getArmorReduction());
+    return (*this);
+}

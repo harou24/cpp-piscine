@@ -14,6 +14,21 @@ std::string FragTrap::_randomAttack[10] = {
 
 };
 
+FragTrap::FragTrap()
+{
+	std::cout << "Let's get this party started!" << std::endl;
+	this->_name = "Default_name";
+	this->_hitPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_energyPoints = 100;
+	this->_maxEnergyPoints = 100;
+	this->_level = 1;
+	this->_meleeAttackDamage = 30;
+	this->_rangedAttackDamage = 20;
+	this->_armorReduction = 5;
+	std::cout << "Object has been constructed !\n" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name)
 {
 	std::cout << "Let's get this party started!" << std::endl;
@@ -128,4 +143,19 @@ unsigned int FragTrap::getMeleeAttack() const
 unsigned int FragTrap::getRangedAttack() const
 {
 	return (this->_rangedAttackDamage);
+}
+
+FragTrap& FragTrap::operator = (const FragTrap &ft)
+{
+    std::cout << "Assignation operator called" << std::endl;
+	this->_name = ft._name;
+	this->_hitPoints = ft._hitPoints;
+	this->_maxHitPoints = ft._maxHitPoints;
+	this->_energyPoints = ft._energyPoints;
+	this->_maxEnergyPoints = ft._maxEnergyPoints;
+	this->_level = ft._level;
+	this->_meleeAttackDamage = ft._meleeAttackDamage;
+	this->_rangedAttackDamage = ft._rangedAttackDamage;
+	this->_armorReduction = ft._armorReduction;
+    return (*this);
 }

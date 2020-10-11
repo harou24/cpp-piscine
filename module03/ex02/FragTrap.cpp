@@ -50,3 +50,17 @@ int FragTrap::vaulthunter_dot_exe(std::string const &target)
 	return (index);
 }
 
+FragTrap& FragTrap::operator = (const FragTrap &ft)
+{
+    std::cout << "Assignation operator called" << std::endl;
+	this->setName(ft.getName());
+	this->setHitPoints(ft.getHitPoints());
+	this->setHitMaxPoints(ft.getHitMaxPoints());
+	this->setEnergyPoints(ft.getEnergyPoints());
+	this->setMaxEnergyPoints(ft.getMaxEnergyPoints());
+	this->setLevel(ft.getLevel());
+	this->setMeleeAttack(ft.getMeleeAttack());
+	this->setRangedAttack(ft.getRangedAttack());
+	this->setArmorReduction(ft.getArmorReduction());
+    return (*this);
+}
