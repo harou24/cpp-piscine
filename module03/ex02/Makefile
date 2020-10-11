@@ -1,4 +1,4 @@
-NAME = test
+NAME = t
 
 SRC = FragTrap.cpp\
 	  Scavtrap.cpp\
