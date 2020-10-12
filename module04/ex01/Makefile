@@ -1,15 +1,15 @@
 NAME = test
 
-SRC = Sorcerer.cpp\
-	  Victim.cpp\
-	  Peon.cpp\
-	  Pigeon.cpp\
+SRC = AWeapon.cpp\
+	  PlasmaRifle.cpp\
+	  PowerFist.cpp\
+	  Enemy.cpp\
 	  main.cpp
 
-INC = Sorcerer.hpp\
-	  Victim.hpp\
-	  Peon.hpp\
-	  Pigeon.hpp
+INC = AWeapon.hpp\
+	  PlasmaRifle.hpp\
+	  PowerFist.hpp\
+	  Enemy.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
