@@ -4,11 +4,17 @@ SRC = AWeapon.cpp\
 	  PlasmaRifle.cpp\
 	  PowerFist.cpp\
 	  Enemy.cpp\
+	  SuperMutant.cpp\
+	  RadScorpion.cpp\
+	  Character.cpp\
 	  main.cpp
 
 INC = AWeapon.hpp\
 	  PlasmaRifle.hpp\
 	  PowerFist.hpp\
+	  SuperMutant.hpp\
+	  RadScorpion.hpp\
+	  Character.hpp\
 	  Enemy.hpp
 
 CC = clang++

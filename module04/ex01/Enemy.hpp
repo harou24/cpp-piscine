@@ -10,14 +10,17 @@ class Enemy
 			int _hitPts;
 	
 	public:
+			Enemy(void);
 			Enemy(int hp, std::string const & type);
 			Enemy(const Enemy &e);
-			virtual ~Enemy();
+			virtual ~Enemy(void);
 
 			Enemy& operator = (const Enemy &ft);
 
-			std::string const getType() const;
-			int getHP() const;
+			std::string const getType(void) const;
+			int getHP(void) const;
+			void setType(std::string const type);
+			void setHP(const int val);
 			virtual void takeDamage(int);
 };
 

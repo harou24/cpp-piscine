@@ -1,5 +1,12 @@
 #include "AWeapon.hpp"
 
+AWeapon::AWeapon(void)
+{
+	this->_name = "default";
+	this->_damage = 0;
+	this->_ap = 0;
+}
+
 AWeapon::AWeapon(std::string const &name, int apcost, int damage)
 {
 	this->_name = name;
@@ -14,7 +21,7 @@ AWeapon::AWeapon(const AWeapon &w)
 }
 
 
-AWeapon::~AWeapon()
+AWeapon::~AWeapon(void)
 {
 
 }
@@ -27,17 +34,17 @@ AWeapon& AWeapon::operator = (const AWeapon &ft)
 	return (*this);
 }
 
-std::string const AWeapon::getName() const
+std::string const AWeapon::getName(void) const
 {
 	return (this->_name);
 }
 
-int  AWeapon::getAPCost() const
+int  AWeapon::getAPCost(void) const
 {
 	return(this->_ap);
 }
 
-int AWeapon::getDamage() const
+int AWeapon::getDamage(void) const
 {
 	return (this->_damage);
 }

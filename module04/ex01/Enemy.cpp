@@ -1,5 +1,11 @@
 #include "Enemy.hpp"
 
+Enemy::Enemy(void)
+{
+	this->_hitPts = 0;
+	this->_type = "default";
+}
+
 Enemy::Enemy(int hp, std::string const &type)
 {
 	this->_hitPts = hp;
@@ -23,14 +29,24 @@ Enemy& Enemy::operator = (const Enemy &e)
 	return (*this);
 }
 
-std::string const Enemy::getType() const
+std::string const Enemy::getType(void) const
 {
 	return (this->_type);
 }
 
-int Enemy::getHP() const
+int Enemy::getHP(void) const
 {
 	return this->_hitPts;
+}
+
+void Enemy::setType(std::string const type)
+{
+	this->_type = type;
+}
+
+void Enemy::setHP(const int val)
+{
+	this->_hitPts = val;
 }
 
 void Enemy::takeDamage(int){}
