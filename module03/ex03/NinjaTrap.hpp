@@ -9,10 +9,12 @@
 class NinjaTrap : public ClapTrap{
 	
 	public :
+		NinjaTrap(void);
 		NinjaTrap(std::string name);
 		NinjaTrap(const NinjaTrap &nt);
-		NinjaTrap& operator = (const NinjaTrap &nt);
 		~NinjaTrap(void);
+		
+		NinjaTrap& operator = (const NinjaTrap &nt);
 
 		void ninjaShoebox(NinjaTrap &nt);
 		void ninjaShoebox(FragTrap &ft);

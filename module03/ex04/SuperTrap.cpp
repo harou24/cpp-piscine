@@ -7,6 +7,12 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name, 100, 100, 120, 120, 1, 6
 	std::cout << "Object has been constructed !\n" << std::endl;
 }
 
+SuperTrap::SuperTrap() : ClapTrap(),NinjaTrap(), FragTrap()
+{
+	std::cout << "I am back again ..." << std::endl;
+	std::cout << "Object has been constructed !\n" << std::endl;
+}
+
 SuperTrap::SuperTrap(const SuperTrap &st) : ClapTrap(st),NinjaTrap(st), FragTrap(st)
 {
 	std::cout << "I am back again ..." << std::endl;

@@ -14,6 +14,8 @@ std::string ScavTrap::_randomChall[10] = {
 
 };
 
+ScavTrap::ScavTrap() : ClapTrap(){};
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
 	std::cout << "Ready to go?" << std::endl;

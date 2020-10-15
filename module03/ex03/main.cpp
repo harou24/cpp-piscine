@@ -16,10 +16,10 @@ int main(void)
     ninja.ninjaShoebox(clap);
 
 	ninja.meleeAttack("Frag");
-	frag.takeDamage(50);
+	frag.takeDamage(ninja.getMeleeAttack());
 	frag.display();
 	ninja.rangedAttack("Ninja");
-	ninja.takeDamage(30);
+	ninja.takeDamage(ninja.getRangedAttack());
 	ninja.display();
 
 	ninja.beRepaired(100);

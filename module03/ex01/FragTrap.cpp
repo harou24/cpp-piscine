@@ -14,6 +14,21 @@ std::string FragTrap::_randomAttack[10] = {
 
 };
 
+FragTrap::FragTrap()
+{
+	std::cout << "Let's get this party started!" << std::endl;
+	this->_name = "default-name";
+	this->_hitPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_energyPoints = 100;
+	this->_maxEnergyPoints = 100;
+	this->_level = 1;
+	this->_meleeAttackDamage = 30;
+	this->_rangedAttackDamage = 20;
+	this->_armorReduction = 5;
+	std::cout << "Object has been constructed !\n" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name)
 {
 	std::cout << "Let's get this party started!" << std::endl;
@@ -63,6 +78,7 @@ void FragTrap::rangedAttack(std::string const &target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
+	amount -= this->_armorReduction;
 	if (this->_hitPoints <= amount)
 		this->_hitPoints = 0;
 	else

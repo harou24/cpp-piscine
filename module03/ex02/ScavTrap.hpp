@@ -9,10 +9,11 @@ class ScavTrap : public ClapTrap{
 			static std::string	_randomChall[10];
 	
 	public :
+		ScavTrap(void);
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap &ft);
 		ScavTrap& operator = (const ScavTrap &ft);
-		~ScavTrap();
+		~ScavTrap(void);
 
 		void challengeNewcomer(void);
 

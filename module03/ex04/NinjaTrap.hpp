@@ -9,6 +9,7 @@
 class NinjaTrap : public virtual ClapTrap{
 	
 	public :
+		NinjaTrap(void);
 		NinjaTrap(std::string name);
 		NinjaTrap(const NinjaTrap &nt);
 		NinjaTrap& operator = (const NinjaTrap &nt);

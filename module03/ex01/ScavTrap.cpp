@@ -14,6 +14,21 @@ std::string ScavTrap::_randomChall[10] = {
 
 };
 
+ScavTrap::ScavTrap(void)
+{
+	std::cout << "Ready to go?" << std::endl;
+	this->_name = "default-name";
+	this->_hitPoints = 100;
+	this->_maxHitPoints = 100;
+	this->_energyPoints = 50;
+	this->_maxEnergyPoints = 50;
+	this->_level = 1;
+	this->_meleeAttackDamage = 20;
+	this->_rangedAttackDamage = 15;
+	this->_armorReduction = 3;
+	std::cout << "Object has been constructed !\n" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "Ready to go?" << std::endl;
@@ -63,6 +78,7 @@ void ScavTrap::rangedAttack(std::string const &target)
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
+	amount -= this->_armorReduction;
 	if (this->_hitPoints <= amount)
 		this->_hitPoints = 0;
 	else

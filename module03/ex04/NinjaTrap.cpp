@@ -1,6 +1,8 @@
 #include "NinjaTrap.hpp"
 #include <ctime>
 
+NinjaTrap::NinjaTrap() : ClapTrap(){}
+
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
 {
 		

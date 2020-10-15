@@ -15,6 +15,8 @@ std::string FragTrap::_randomAttack[10] = {
 
 };
 
+FragTrap::FragTrap(void) : ClapTrap(){}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
 		

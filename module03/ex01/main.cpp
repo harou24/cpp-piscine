@@ -14,27 +14,27 @@ int main(void)
 	{
 
 		ft.meleeAttack("Scav-two");
-		sc.takeDamage(ft.getMeleeAttack() - sc.getArmorReduction());
+		sc.takeDamage(ft.getMeleeAttack());
 		sc.display();
 		sc.meleeAttack("Frag");
-		ft.takeDamage(sc.getMeleeAttack() - ft.getArmorReduction());
+		ft.takeDamage(sc.getMeleeAttack());
 		ft.display();
 
 		if (ft.isDead() || sc.isDead())
 			break ;
 
 		ft.rangedAttack("Scav");
-		sc.takeDamage(ft.getRangedAttack() - sc.getArmorReduction());
+		sc.takeDamage(ft.getRangedAttack());
 		sc.display();
 		sc.rangedAttack("Frag");
-		ft.takeDamage(sc.getRangedAttack() - ft.getArmorReduction());
+		ft.takeDamage(sc.getRangedAttack());
 		ft.display();
 
 		if (ft.isDead() || sc.isDead())
 			break ;
 
 		int index = ft.vaulthunter_dot_exe("Scav");
-		sc.takeDamage((index * (std::rand() % 10) + 10) - sc.getArmorReduction());
+		sc.takeDamage((index * (std::rand() % 10) + 10));
 		sc.display();
 
 		sc.challengeNewcomer();

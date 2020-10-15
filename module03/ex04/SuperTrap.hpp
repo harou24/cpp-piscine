@@ -10,6 +10,7 @@
 class SuperTrap : public virtual NinjaTrap, public virtual FragTrap{
 	
 	public :
+		SuperTrap(void);
 		SuperTrap(std::string name);
 		SuperTrap(const SuperTrap &st);
 		SuperTrap& operator = (const SuperTrap &st);

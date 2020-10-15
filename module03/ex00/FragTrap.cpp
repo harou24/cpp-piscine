@@ -78,6 +78,7 @@ void FragTrap::rangedAttack(std::string const &target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
+	amount -= this->_armorReduction;
 	if (this->_hitPoints <= amount)
 		this->_hitPoints = 0;
 	else

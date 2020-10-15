@@ -11,31 +11,31 @@ int main(void)
 	while (!(ft.isDead() && ft2.isDead()))
 	{
 		ft.meleeAttack("Frag-two");
-		ft2.takeDamage(ft.getMeleeAttack() - ft2.getArmorReduction());
+		ft2.takeDamage(ft.getMeleeAttack());
 		ft2.display();
 		ft2.meleeAttack("Frag-one");
-		ft.takeDamage(ft2.getMeleeAttack() - ft.getArmorReduction());
+		ft.takeDamage(ft2.getMeleeAttack());
 		ft.display();
 
 		if (ft.isDead() || ft2.isDead())
 			break ;
 
 		ft.rangedAttack("Frag-two");
-		ft2.takeDamage(ft.getRangedAttack() - ft2.getArmorReduction());
+		ft2.takeDamage(ft.getRangedAttack());
 		ft2.display();
 		ft2.rangedAttack("Frag-one");
-		ft.takeDamage(ft2.getRangedAttack() - ft.getArmorReduction());
+		ft.takeDamage(ft2.getRangedAttack());
 		ft.display();
 
 		if (ft.isDead() || ft2.isDead())
 			break ;
 
 		int index = ft.vaulthunter_dot_exe("Frag-two");
-		ft2.takeDamage((index * (std::rand() % 10) + 10) - ft2.getArmorReduction());
+		ft2.takeDamage((index * (std::rand() % 10) + 10));
 		ft2.display();
 
 		int index2 = ft2.vaulthunter_dot_exe("Frag-one");
-		ft.takeDamage((index2 * (std::rand() % 10) + 10) - ft.getArmorReduction());
+		ft.takeDamage((index2 * (std::rand() % 10) + 10));
 		ft.display();
 
 		if (ft.isDead() || ft2.isDead())

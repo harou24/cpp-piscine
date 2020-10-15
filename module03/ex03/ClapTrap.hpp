@@ -16,28 +16,29 @@ class ClapTrap {
                 unsigned int            _armorReduction;
 
         public :
-                ClapTrap(std::string name, unsigned int hitPts, unsigned int maxHitPts, unsigned int energy,
+                ClapTrap(void);
+				ClapTrap(std::string name, unsigned int hitPts, unsigned int maxHitPts, unsigned int energy,
 						unsigned int maxEnergy, unsigned int level, unsigned int melee, unsigned int ranged,
 						unsigned int armorRedcution);
 
                 ClapTrap(const ClapTrap &ct);
                 ClapTrap& operator = (const ClapTrap &ct);
-                ~ClapTrap();
+                ~ClapTrap(void);
 
                 void rangedAttack(std::string const &target);
                 void meleeAttack(std::string const &target);
                 void takeDamage(unsigned int amount);
                 void beRepaired(unsigned int amount);
 
-                unsigned int getHitPoints() const;
-                unsigned int getHitMaxPoints() const;
-                unsigned int getEnergyPoints() const;
-                unsigned int getMaxEnergyPoints() const;
-                unsigned int getLevel() const;
-                std::string getName() const;
-                unsigned int getMeleeAttack() const;
-                unsigned int getRangedAttack() const;
-                unsigned int getArmorReduction() const;
+                unsigned int getHitPoints(void) const;
+                unsigned int getHitMaxPoints(void) const;
+                unsigned int getEnergyPoints(void) const;
+                unsigned int getMaxEnergyPoints(void) const;
+                unsigned int getLevel(void) const;
+                std::string getName(void) const;
+                unsigned int getMeleeAttack(void) const;
+                unsigned int getRangedAttack(void) const;
+                unsigned int getArmorReduction(void) const;
 
                 void setHitPoints(const unsigned int val);
                 void setHitMaxPoints(const unsigned int val);
@@ -48,8 +49,8 @@ class ClapTrap {
                 void setMeleeAttack(const unsigned int val);
                 void setRangedAttack(const unsigned int val);
                 void setArmorReduction(const unsigned int val);
-                void display() const;
-                bool isDead() const;
+                void display(void) const;
+                bool isDead(void) const;
 };
 
 

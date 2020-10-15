@@ -1,5 +1,20 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(void)
+{
+        std::cout << "Alaka-ZAM!" << std::endl;
+        this->_name = "default-name";
+        this->_hitPoints = 100;
+        this->_maxHitPoints = 100;
+        this->_energyPoints = 100;
+        this->_maxEnergyPoints = 100;
+        this->_level = 1;
+        this->_meleeAttackDamage = 10;
+        this->_rangedAttackDamage = 10;
+        this->_armorReduction = 3;
+        std::cout << "Object has been constructed !\n" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name, unsigned int hitPts, unsigned int maxHitPts, unsigned int energy,
                                                 unsigned int maxEnergy, unsigned int level, unsigned int melee, unsigned int ranged,
                                                 unsigned int armorReduction)
@@ -51,6 +66,7 @@ void ClapTrap::rangedAttack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	amount -= this->_armorReduction;
 	if (this->_hitPoints <= amount)
 		this->_hitPoints = 0;
 	else

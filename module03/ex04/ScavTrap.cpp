@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 #include <ctime>
+
 std::string ScavTrap::_randomChall[10] = {
 											"Run a marathon.",
 											"Take on a charity challenge.",
@@ -13,6 +14,8 @@ std::string ScavTrap::_randomChall[10] = {
 											"Get Others Up For A Challenge"
 
 };
+
+ScavTrap::ScavTrap() : ClapTrap(){};
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
