@@ -2,14 +2,15 @@
 # define CHARACTER_
 
 # include <iostream>
-# include <AWeapon.hpp>
+# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
 class Character {
 
         private:
 				std::string _name;
 				unsigned int _aP;
-				AWeapon::AWeapon *_weapon;
+				AWeapon *_weapon;
 
         public:
                 Character(void);
