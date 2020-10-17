@@ -22,6 +22,3 @@ RadScorpion& RadScorpion::operator = (const RadScorpion &e)
 	return (*this);
 }
 
-void RadScorpion::takeDamage(int val){
-	this->setHP(this->getHP() - (val + 3));
-}

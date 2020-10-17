@@ -16,7 +16,7 @@ class Character {
                 Character(void);
 				Character(std::string const & name);
 				Character(const Character &c);
-				~Character(void);
+				virtual	~Character(void);
 
 				Character& operator = (const Character &c);
 
