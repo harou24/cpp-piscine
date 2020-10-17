@@ -1,5 +1,6 @@
 #include "Character.hpp"
-
+#include <string>
+#include <sstream>
 Character::Character(void)
 {
 	this->_name = "Hello_world";
@@ -31,8 +32,10 @@ Character& Character::operator = (const Character &c)
 
 void Character::recoverAP(void)
 {
-	if	(this->_aP < 40)
+	if	(this->_aP + 10 < 40)
 		this->_aP += 10;
+	else
+		this->_aP = 40;
 }
 
 void Character::equip(AWeapon *w)
@@ -47,11 +50,14 @@ void Character::attack(Enemy *e)
 		std::cout << "NOT equipped Weapon !" << std::endl;
 		return ;
 	}
-	if (this->_aP - this->_weapon->getAPCost() >= 0)
+	if (this->_aP-this->_weapon->getAPCost()  > 0)
 	{
 		this->_aP -= this->_weapon->getAPCost();
 		std::cout << this->_name << " attacks " << e->getType() << " with a " << this->_weapon->getName() << std::endl;
 		this->_weapon->attack();
+		e->takeDamage(this->_weapon->getDamage());
+		if (e->getHP() == 0)
+			delete(e);
 		if (this->_aP == 0)
 			delete (this->_weapon);
 	}
@@ -68,7 +74,7 @@ std::string const Character::getName(void) const
 	return (this->_name);
 }
 
-unsigned int Character::getAP() const
+ int Character::getAP() const
 {
 	return (this->_aP);
 }
@@ -80,11 +86,11 @@ AWeapon* Character::getWeapon() const
 
 std::ostream& operator << (std::ostream &output, const Character &c)
 {
-	std::string res;
+	std::stringstream res;
 	if (c.getWeapon() == NULL)	
-		res = c.getName() + " has " + std::to_string(c.getAP()) + " AP and is unarmed\n";
+		res << c.getName() << " has " << c.getAP() << " AP and is unarmed\n";
 	else
-		res = c.getName() + " has " + std::to_string(c.getAP()) + " AP and wields a " + c.getWeapon()->getName() + "\n";
-	output << res;
+		res << c.getName() << " has " << c.getAP() << " AP and wields a " << c.getWeapon()->getName() << "\n";
+	output << res.str();
 	return (output);
 }

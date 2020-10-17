@@ -9,7 +9,7 @@ class Character {
 
         private:
 				std::string _name;
-				unsigned int _aP;
+				int _aP;
 				AWeapon *_weapon;
 
         public:
@@ -25,7 +25,7 @@ class Character {
 				void attack(Enemy*);
 				
 				std::string const getName(void) const;
-				unsigned int getAP() const;
+				int getAP() const;
 				AWeapon* getWeapon() const;
 };
 
