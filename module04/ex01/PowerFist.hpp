@@ -1,5 +1,5 @@
-#ifndef PLASMA_RIFLE
-# define PLASMA_RIFLE
+#ifndef POWER_FIST_
+# define POWER_FIST_
 
 # include "AWeapon.hpp"
 

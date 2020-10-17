@@ -38,7 +38,6 @@ void Character::recoverAP(void)
 void Character::equip(AWeapon *w)
 {
 	this->_weapon = w;
-	std::cout << this->_name << " has equipped with " << this->_weapon->getName() << std::endl;
 }
 
 void Character::attack(Enemy *e)
@@ -48,16 +47,20 @@ void Character::attack(Enemy *e)
 		std::cout << "NOT equipped Weapon !" << std::endl;
 		return ;
 	}
-	if (this->_aP > 0)
+	if (this->_aP - this->_weapon->getAPCost() >= 0)
 	{
-		this->_aP -= 10;
-		std::cout << this->_name << " attacks " << e->getType() << " with a " << this->_weapon << std::endl;
+		this->_aP -= this->_weapon->getAPCost();
+		std::cout << this->_name << " attacks " << e->getType() << " with a " << this->_weapon->getName() << std::endl;
 		this->_weapon->attack();
 		if (this->_aP == 0)
 			delete (this->_weapon);
 	}
 	else
+	{
+		this->_aP = 0;
 		std::cout << "NOT enough Action Points to attack !" << std::endl;
+
+	}
 }
 
 std::string const Character::getName(void) const 
@@ -65,13 +68,23 @@ std::string const Character::getName(void) const
 	return (this->_name);
 }
 
+unsigned int Character::getAP() const
+{
+	return (this->_aP);
+}
+
+AWeapon* Character::getWeapon() const
+{
+	return (this->_weapon);
+}
+
 std::ostream& operator << (std::ostream &output, const Character &c)
 {
 	std::string res;
-	if (c._weapon == NULL)	
-		res = this->_name + " has " + this->_aP + " and is unarmed\n";
+	if (c.getWeapon() == NULL)	
+		res = c.getName() + " has " + std::to_string(c.getAP()) + " AP and is unarmed\n";
 	else
-		res = this->_name + " has " + this->aP + " and wields a " this->_weapon->getName();
+		res = c.getName() + " has " + std::to_string(c.getAP()) + " AP and wields a " + c.getWeapon()->getName() + "\n";
 	output << res;
 	return (output);
 }

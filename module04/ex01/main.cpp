@@ -1,24 +1,28 @@
 #include "AWeapon.hpp"
 #include "Character.hpp"
 #include "Enemy.hpp"
+#include "PlasmaRifle.hpp"
+#include "PowerFist.hpp"
+#include "Character.hpp"
+#include "RadScorpion.hpp"
 
 int main()
 {
-	Character* zaz = new Character(``zaz'');
-	std::cout << *zaz;
+	Character* me = new Character("me");
+	std::cout << *me;
 	Enemy* b = new RadScorpion();
 	AWeapon* pr = new PlasmaRifle();
 	AWeapon* pf = new PowerFist();
-	zaz->equip(pr);
-	std::cout << *zaz;
-	zaz->equip(pf);
-	zaz->attack(b);
-	std::cout << *zaz;
-	zaz->equip(pr);
-	std::cout << *zaz;
-	zaz->attack(b);
-	std::cout << *zaz;
-	zaz->attack(b);
-	std::cout << *zaz;
+	me->equip(pr);
+	std::cout << *me;
+	me->equip(pf);
+	me->attack(b);
+	std::cout << *me;
+	me->equip(pr);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
+	me->attack(b);
+	std::cout << *me;
 	return (0);
 }

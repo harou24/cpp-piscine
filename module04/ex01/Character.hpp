@@ -23,7 +23,10 @@ class Character {
 				void recoverAP(void);
 				void equip(AWeapon*);
 				void attack(Enemy*);
+				
 				std::string const getName(void) const;
+				unsigned int getAP() const;
+				AWeapon* getWeapon() const;
 };
 
 std::ostream& operator << (std::ostream &output, const Character &c);

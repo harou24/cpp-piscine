@@ -4,7 +4,7 @@ AWeapon::AWeapon(void)
 {
 	this->_name = "default";
 	this->_damage = 0;
-	this->_ap = 0;
+	this->_ap = 1000;
 }
 
 AWeapon::AWeapon(std::string const &name, int apcost, int damage)
