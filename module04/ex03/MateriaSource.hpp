@@ -1,25 +1,23 @@
-#ifndef MATERIA_SOURCE_H_
-# define MATERIA_SOURCE_H
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "AMateriaSource.hpp"
 # include "IMateriaSource.hpp"
-# include "Ice.hpp"
-# include "Cure.hpp"
+# include "AMateria.hpp"
+# include <string>
 
-class MateriaSource : public IMateriaSource {
+class MateriaSource : public IMateriaSource
+{
+public:
+	MateriaSource();
+	MateriaSource(const MateriaSource& other);
+	MateriaSource& operator=(const MateriaSource& other);
+	~MateriaSource();
 	
-		private :
-					AMateriaSource*		mSrcs[4];
-
-		public :
-				MateriaSource(void);
-				MateriaSource(const MateriaSource &m);
-				~MateriaSource(void);
-
-				MateriaSource& operator = (const MateriaSource &m);
-
-				void learnMateria(AMateria*);
-				AMateria* createMateria(std::string const & type);
+	void	learnMateria(AMateria* m);
+	AMateria* createMateria(std::string const &type);
+private:
+	int			_count;
+	AMateria*	_materias[5];
 };
 
 #endif

@@ -1,22 +1,21 @@
-#ifndef CURE_H_
-# define CURE_H_
+#ifndef CURE_HPP
+# define CURE_HPP
 
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
+#include <string>
 
-class Cure : public AMateria {
+class	Cure : public AMateria {
+	public:
+		Cure();
+		Cure(const Cure& other);
+		Cure& operator=(const Cure& other);
+		~Cure();
 		
-		public : 
-			Cure(void);
-			Cure(const Cure &ice);
-			~Cure(void);
+		Cure* clone() const;
+		void use(ICharacter& target);
 
-			Cure& operator = (const Cure &ice);
-
-			AMateria* clone() const;
-			void use(ICharacter& target);
-
-
+	private:
+		unsigned int	_xp;
 };
 
 #endif

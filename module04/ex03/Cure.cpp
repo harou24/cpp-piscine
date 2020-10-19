@@ -1,23 +1,33 @@
 #include "Cure.hpp"
+#include <string>
+#include <iostream>
 
-Cure::Cure(void) : AMaterial("ice"){}
-
-Cure::Cure(const Cure &ice) : AMaterial(ice){}
-
-Cure::~Cure(){}
-
-Cure& Cure::operator = (const Cure &ice)
-{
-	this->setXP(ice.getXP());
-	return (*this);
+Cure::Cure() : AMateria() {
+	this->_type = "cure";
+	this->_xp = 0;
 }
 
-AMaterial* Cure::clone() const
-{
-	return (new Cure(*this));
+Cure::Cure(const Cure& other) : AMateria() {
+	*this = other;
 }
 
-void use(ICharacter& target)
-{
+Cure& Cure::operator=(const Cure& other) {
+	if (this != &other) {
+		this->_xp = other._xp;
+		this->_type = other._type;
+	}
+	return *this;
+}
+
+Cure::~Cure() {
+}
+
+
+Cure*			Cure::clone() const {
+	return new Cure(*this);
+}
+
+void					Cure::use(ICharacter& target) {
 	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+	this->_xp += 10;
 }

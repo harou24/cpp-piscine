@@ -1,19 +1,17 @@
-#ifndef ICHARACTER_H_
-# define ICHARACTER_H_
-
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 # include "AMateria.hpp"
-# include <iostream>
+# include <string>
 
-class AMateria;
+class	AMateria; //forward declaration to stop cyclic includes
 
-class ICharacter
-{
-	public:
-			virtual ~ICharacter() {}
-			virtual std::string const & getName() const = 0;
-			virtual void equip(AMateria* m) = 0;
-			virtual void unequip(int idx) = 0;
-			virtual void use(int idx, ICharacter& target) = 0;
+class ICharacter {
+public:
+	virtual ~ICharacter() {}
+	virtual std::string const & getName() const = 0;
+	virtual void equip(AMateria* m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter& target) = 0;
 };
 
 #endif

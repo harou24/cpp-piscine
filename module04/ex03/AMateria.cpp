@@ -1,33 +1,36 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void){}
-
-AMateria::AMateria(std::string const &type)
-{
-	this->_xp = 0;
-	this->_type = type;
+AMateria::AMateria() : _type("AMateria"), _xp(0) {
 }
 
-AMateria::AMateria(const AMateria &am)
-{
-	*this = am;
+AMateria::AMateria(std::string const & type) : _type(type), _xp(0) {
 }
 
-AMateria::~AMateria(void){}
-
-AMateria& AMateria::operator = (const AMateria &am)
-{
-	this->_xp = am._xp;
-	this->_type = am._type;
-	return (*this);
+AMateria::AMateria(const AMateria& other){
+	*this = other;
 }
 
-std::string const & AMateria::getType(void) const
-{
-	return (this->_type);
+AMateria& AMateria::operator=(const AMateria& other) {
+	if (this != &other) {
+		this->_xp = other._xp;
+		this->_type = other._type;
+	}
+	return *this;
 }
 
-unsigned int AMateria::getXP(void) const
-{
-	return (this->_xp);
+AMateria::~AMateria() {
+}
+
+
+std::string const&	AMateria::getType() const {
+	return this->_type;
+}
+
+unsigned int		AMateria::getXP() const {
+	return this->_xp;
+}
+
+void					AMateria::use(ICharacter& target) {
+	(void)target;
+	this->_xp += 10;
 }
