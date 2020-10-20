@@ -78,21 +78,23 @@ void ScavTrap::rangedAttack(std::string const &target)
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
-	amount -= this->_armorReduction;
-	if (this->_hitPoints <= amount)
-		this->_hitPoints = 0;
-	else
-		this->_hitPoints -= amount;
-	std::cout << this->_name << " has been damaged by " << amount << std::endl;
+        int old = this->_hitPoints;
+        int armRed = amount - this->_armorReduction;
+                if (armRed < 0)
+                        armRed = 1;
+        this->_hitPoints -= armRed;
+        if (this->_hitPoints < 0)
+                this->_hitPoints = 0;
+        std::cout << this->_name << " has been damaged by " << old - this->_hitPoints << std::endl;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints + amount <= this->_maxHitPoints)
-		this->_hitPoints += amount;
-	else
-		this->_hitPoints = this->_maxHitPoints;
-std::cout << this->_name << " has been repaired by " << amount << std::endl;
+        int old = this->_hitPoints;
+        this->_hitPoints += amount;
+        if (this->_hitPoints > this->_maxHitPoints)
+                this->_hitPoints = this->_maxHitPoints;
+        std::cout << this->_name << " has been repaired by " << this->_hitPoints - old << std::endl;
 }
 
 void ScavTrap::challengeNewcomer(void)
@@ -102,7 +104,7 @@ void ScavTrap::challengeNewcomer(void)
 	std::cout << "Challenge" << ScavTrap::_randomChall[index] << std::endl;
 }
 
-unsigned int ScavTrap::getArmorReduction() const
+ int ScavTrap::getArmorReduction() const
 {
 	return (this->_armorReduction);
 }
@@ -127,12 +129,12 @@ bool ScavTrap::isDead() const
 		return false;
 }
 
-unsigned int ScavTrap::getMeleeAttack() const
+ int ScavTrap::getMeleeAttack() const
 {
 	return (this->_meleeAttackDamage);
 }
 
-unsigned int ScavTrap::getRangedAttack() const
+ int ScavTrap::getRangedAttack() const
 {
 	return (this->_rangedAttackDamage);
 }

@@ -5,21 +5,21 @@
 
 class ClapTrap {
         private :
-                unsigned int            _hitPoints;
-                unsigned int            _maxHitPoints;
-                unsigned int            _energyPoints;
-                unsigned int            _maxEnergyPoints;
-                unsigned int            _level;
+                 int            _hitPoints;
+                 int            _maxHitPoints;
+                 int            _energyPoints;
+                 int            _maxEnergyPoints;
+                 int            _level;
                 std::string             _name;
-                unsigned int            _meleeAttackDamage;
-                unsigned int            _rangedAttackDamage;
-                unsigned int            _armorReduction;
+                 int            _meleeAttackDamage;
+                 int            _rangedAttackDamage;
+                 int            _armorReduction;
 
         public :
 				ClapTrap(void);
-                ClapTrap(std::string name, unsigned int hitPts, unsigned int maxHitPts, unsigned int energy,
-						unsigned int maxEnergy, unsigned int level, unsigned int melee, unsigned int ranged,
-						unsigned int armorRedcution);
+                ClapTrap(std::string name,  int hitPts,  int maxHitPts,  int energy,
+						 int maxEnergy,  int level,  int melee,  int ranged,
+						 int armorRedcution);
 
                 ClapTrap(const ClapTrap &ct);
                 ClapTrap& operator = (const ClapTrap &ct);
@@ -30,25 +30,25 @@ class ClapTrap {
                 void takeDamage(unsigned int amount);
                 void beRepaired(unsigned int amount);
 
-                unsigned int getHitPoints(void) const;
-                unsigned int getHitMaxPoints(void) const;
-                unsigned int getEnergyPoints(void) const;
-                unsigned int getMaxEnergyPoints(void) const;
-                unsigned int getLevel(void) const;
+                 int getHitPoints(void) const;
+                 int getHitMaxPoints(void) const;
+                 int getEnergyPoints(void) const;
+                 int getMaxEnergyPoints(void) const;
+                 int getLevel(void) const;
                 std::string getName(void) const;
-                unsigned int getMeleeAttack(void) const;
-                unsigned int getRangedAttack(void) const;
-                unsigned int getArmorReduction(void) const;
+                 int getMeleeAttack(void) const;
+                 int getRangedAttack(void) const;
+                 int getArmorReduction(void) const;
 
-                void setHitPoints(const unsigned int val);
-                void setHitMaxPoints(const unsigned int val);
-                void setEnergyPoints(const unsigned int val);
-                void setMaxEnergyPoints(const unsigned int val);
-                void setLevel(const unsigned int val);
+                void setHitPoints(const  int val);
+                void setHitMaxPoints(const  int val);
+                void setEnergyPoints(const  int val);
+                void setMaxEnergyPoints(const  int val);
+                void setLevel(const  int val);
                 void setName(const std::string name);;
-                void setMeleeAttack(const unsigned int val);
-                void setRangedAttack(const unsigned int val);
-                void setArmorReduction(const unsigned int val);
+                void setMeleeAttack(const  int val);
+                void setRangedAttack(const  int val);
+                void setArmorReduction(const  int val);
                 void display(void) const;
                 bool isDead(void) const;
 };

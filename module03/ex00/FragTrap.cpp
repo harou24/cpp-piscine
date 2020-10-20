@@ -1,5 +1,6 @@
 #include "FragTrap.hpp"
 #include <ctime>
+
 std::string FragTrap::_randomAttack[10] = {
 											"There's more to learn!",
 											"Let me teach you the ways of magic!",
@@ -76,23 +77,25 @@ void FragTrap::rangedAttack(std::string const &target)
 	std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, causing " << this->_rangedAttackDamage << " points of damage! " << std::endl;
 }
 
-void FragTrap::takeDamage(unsigned int amount)
+void FragTrap::takeDamage( unsigned int amount)
 {
-	amount -= this->_armorReduction;
-	if (this->_hitPoints <= amount)
+	int old = this->_hitPoints;
+	int armRed = amount - this->_armorReduction;
+		if (armRed < 0)
+			armRed = 1;
+	this->_hitPoints -= armRed;
+	if (this->_hitPoints < 0)
 		this->_hitPoints = 0;
-	else
-		this->_hitPoints -= amount;
-	std::cout << this->_name << " has been damaged by " << amount << std::endl;
+	std::cout << this->_name << " has been damaged by " << old - this->_hitPoints << std::endl;
 }
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hitPoints + amount <= this->_maxHitPoints)
-		this->_hitPoints += amount;
-	else
+	int old = this->_hitPoints;
+	this->_hitPoints += amount;
+	if (this->_hitPoints > this->_maxHitPoints)
 		this->_hitPoints = this->_maxHitPoints;
-std::cout << this->_name << " has been repaired by " << amount << std::endl;
+	std::cout << this->_name << " has been repaired by " << this->_hitPoints - old << std::endl;
 }
 
 int FragTrap::vaulthunter_dot_exe(std::string const &target)
@@ -111,7 +114,7 @@ int FragTrap::vaulthunter_dot_exe(std::string const &target)
 	return (index);
 }
 
-unsigned int FragTrap::getArmorReduction() const
+ int FragTrap::getArmorReduction() const
 {
 	return (this->_armorReduction);
 }
@@ -136,12 +139,12 @@ bool FragTrap::isDead() const
 		return false;
 }
 
-unsigned int FragTrap::getMeleeAttack() const
+ int FragTrap::getMeleeAttack() const
 {
 	return (this->_meleeAttackDamage);
 }
 
-unsigned int FragTrap::getRangedAttack() const
+ int FragTrap::getRangedAttack() const
 {
 	return (this->_rangedAttackDamage);
 }

@@ -42,18 +42,14 @@ int main(void)
 			break ;
 		ft.beRepaired(30);
 		ft2.beRepaired(30);
-
 	}
+	
 	if (ft.isDead())
 		std::cout << ft2.getName() << " won the game !" << std::endl;
 	else if (ft2.isDead())
 		std::cout << ft.getName() << " won the game !" << std::endl;
 	else
 		std::cout << "Equality" << std::endl;
-	ft.takeDamage(10000);
-	ft.display();
-	ft.beRepaired(20000);
-	ft.display();
 
 	return (0);
 }

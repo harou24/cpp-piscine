@@ -5,15 +5,15 @@
 
 class ScavTrap {
 	private :
-		unsigned int 		_hitPoints;
-		unsigned int 		_maxHitPoints;
-		unsigned int 		_energyPoints;
-		unsigned int 		_maxEnergyPoints;
-		unsigned int 		_level;
+		 int 		_hitPoints;
+		 int 		_maxHitPoints;
+		 int 		_energyPoints;
+		 int 		_maxEnergyPoints;
+		 int 		_level;
 		std::string 		_name;
-		unsigned int 		_meleeAttackDamage;
-		unsigned int 		_rangedAttackDamage;
-		unsigned int 		_armorReduction;
+		 int 		_meleeAttackDamage;
+		 int 		_rangedAttackDamage;
+		 int 		_armorReduction;
 		static std::string	_randomChall[10];
 	
 	public :
@@ -25,29 +25,29 @@ class ScavTrap {
 
 		void rangedAttack(std::string const &target);
 		void meleeAttack(std::string const &target);
-		void takeDamage(unsigned int amount);
+		void takeDamage (unsigned int amount);
 		void beRepaired(unsigned int amount);
 		void challengeNewcomer(void);
 
-		unsigned int getHitPoints(void) const;
-		unsigned int getHitMaxPoints(void) const;
-		unsigned int getEnergyPoints(void) const;
-		unsigned int getMaxEnergyPoints(void) const;
-		unsigned int getLevel(void) const;
+		 int getHitPoints(void) const;
+		 int getHitMaxPoints(void) const;
+		 int getEnergyPoints(void) const;
+		 int getMaxEnergyPoints(void) const;
+		 int getLevel(void) const;
 		std::string getName(void) const;
-		unsigned int getMeleeAttack(void) const;
-		unsigned int getRangedAttack(void) const;
-		unsigned int getArmorReduction(void) const;
+		 int getMeleeAttack(void) const;
+		 int getRangedAttack(void) const;
+		 int getArmorReduction(void) const;
 
-		void setHitPoints(const unsigned int val);
-		void setHitMaxPoints(const unsigned int val);
-		void setEnergypoints(const unsigned int val);
-		void setMaxEnergyPoints(const unsigned int val);
-		void Level(const unsigned int val);
+		void setHitPoints(const  int val);
+		void setHitMaxPoints(const  int val);
+		void setEnergypoints(const  int val);
+		void setMaxEnergyPoints(const  int val);
+		void Level(const  int val);
 		void setName(const std::string name);;
-		void setMeleeAttack(const unsigned int val);
-		void setRangedAttack(const unsigned int val);
-		void setArmmorReduction(const unsigned int val);
+		void setMeleeAttack(const  int val);
+		void setRangedAttack(const  int val);
+		void setArmmorReduction(const  int val);
 		void display(void) const;
 		bool isDead(void) const;
 };
