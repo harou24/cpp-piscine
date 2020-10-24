@@ -95,3 +95,10 @@ Form::GradeNotSignedException::~GradeNotSignedException(void)throw(){}
 Form::GradeNotSignedException& Form::GradeNotSignedException::operator = (const GradeNotSignedException&){return (*this);}
 const char* Form::GradeNotSignedException::what() const throw() {return ("Error : Grade not Signed exception !");}
 
+Form::CreationFileException::CreationFileException(void){}
+Form::CreationFileException::CreationFileException(const CreationFileException &cpy){*this = cpy;}
+Form::CreationFileException::~CreationFileException(void)throw(){}
+
+Form::CreationFileException& Form::CreationFileException::operator = (const CreationFileException&){return (*this);}
+const char* Form::CreationFileException::what() const throw() {return ("Error : Creation File  exception !");}
+

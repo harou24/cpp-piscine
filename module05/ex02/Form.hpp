@@ -78,6 +78,18 @@ class Form {
 						virtual const char* what() const throw();
 			};
 
+			class CreationFileException : public std::exception
+			{
+				public :
+						CreationFileException(void);
+						CreationFileException(const CreationFileException &cpy);
+						~CreationFileException(void) throw();
+
+						CreationFileException& operator = (const CreationFileException &old);
+
+						virtual const char* what() const throw();
+			};
+
 };
 
 std::ostream& operator << (std::ostream &output, const Form &f);

@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+
 ShrubberyCreationForm::ShrubberyCreationForm(void) : Form(){}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : Form("ShrubberyCreationForm", 145, 137) {
@@ -22,38 +23,36 @@ std::string ShrubberyCreationForm::getTarget(void) const
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
-	std::oftream output(this->target + "_shrubbery");
+	std::ofstream output(this->_target + "_shrubbery");
 	if (!output)
-		exit(0); // to do exception
-
+		throw CreationFileException();
 	
-	output << "							     /\      		 " << std::endl <<
-			  "								<  >     		 " << std::endl <<
-			  "								 \/      		 " << std::endl <<
-			  "								 /\      		 " << std::endl <<
-			  "								/  \     		 " << std::endl <<
-			  "							   /++++\    		 " << std::endl <<
-			  "							  /  ()  \   		 " << std::endl <<
-			  "							  /      \   		 " << std::endl <<
-			  "							 /~`~`~`~`\  		 " << std::endl <<
-			  "							/  ()  ()  \ 		 " << std::endl <<
-			  "							/          \ 		 " << std::endl <<
-			  "						   /*&*&*&*&*&*&\ 		 " << std::endl <<
-			  "						  /  ()  ()  ()  \   	 " << std::endl <<
-			  "						  /              \		 " << std::endl <<
-			  "						 /++++++++++++++++\		 " << std::endl <<
-			  "						/  ()  ()  ()  ()  \	 " << std::endl <<
-			  "						/                  \  	 " << std::endl <<
-			  "					   /~`~`~`~`~`~`~`~`~`~`\	 " << std::endl <<
-			  "					  /  ()  ()  ()  ()  ()  \ 	 " << std::endl <<
-			  "					  /*&*&*&*&*&*&*&*&*&*&*&\	 " << std::endl <<
-		      "					 /                        \  " << std::endl <<
-			  "					/,.,.,.,.,.,.,.,.,.,.,.,.,.\ " << std::endl <<
+	output << "							       |     		 " << std::endl <<
+			  "								  < >     		 " << std::endl <<
+			  "								  | |    		 " << std::endl <<
+			  "								 | | |   		 " << std::endl <<
+			  "								|  |  |   		 " << std::endl <<
+			  "							   |++++++|  		 " << std::endl <<
+			  "							  |   ()   | 		 " << std::endl <<
+			  "							  |         |		 " << std::endl <<
+			  "							 |~`~`~`~`~'|		 " << std::endl <<
+			  "							|  ()  ()   |		 " << std::endl <<
+			  "							|           |		 " << std::endl <<
+			  "						   |*&*&*&*&*&*&| 		 " << std::endl <<
+			  "						  |  ()  ()  ()  |   	 " << std::endl <<
+			  "						  |              |		 " << std::endl <<
+			  "						 |++++++++++++++++|		 " << std::endl <<
+			  "						|  ()  ()  ()  ()  |  	 " << std::endl <<
+			  "						|                   |	 " << std::endl <<
+			  "					   |~`~`~`~`~`~`~`~`~`~`|	 " << std::endl <<
+			  "					  |  ()  ()  ()  ()  ()  | 	 " << std::endl <<
+			  "					  |*&*&*&*&*&*&*&*&*&*&*&|	 " << std::endl <<
+		      "					 |                        |  " << std::endl <<
+			  "					|,.,.,.,.,.,.,.,.,.,.,.,.,.| " << std::endl <<
               "							   |   |			 " << std::endl <<
 			  "							  |`````|			 " << std::endl <<
-			  "							  \_____/			 " << std::endl <<
+			  "							  |_____|			 " << std::endl <<
 			  "______________________________________________" << std::endl;
 
 	output.close();
-
 }
