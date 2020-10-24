@@ -3,10 +3,14 @@ NAME = Bureaucrat
 SRC = Bureaucrat.cpp\
 	  Form.cpp\
 	  ShrubberyCreationForm.cpp\
+	  RobotomyRequestForm.cpp\
+	  PresidentialPardonForm.cpp\
 	  main.cpp
 
 INC = Bureaucrat.hpp\
 	  Form.hpp\
+	  RobotomyRequestForm.hpp\
+	  PresidentialPardonForm.hpp\
 	  ShrubberyCreationForm.hpp
 
 CC = clang++
@@ -26,5 +30,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f *_shrubbery
 
 re: clean all

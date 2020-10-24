@@ -29,7 +29,8 @@ class Bureaucrat {
 
 			//sign form
 			void signForm(Form &f);
-
+			//execute
+			void executeForm(Form const & form) const;
 			//Nested class to handle exceptions
 
 			class GradeTooHighException : public std::exception

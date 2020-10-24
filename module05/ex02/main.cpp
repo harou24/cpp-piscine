@@ -1,74 +1,51 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
-		Bureaucrat b = Bureaucrat("Hello_world", 75);
-		Form f = Form("test", 74, 74);
+	Bureaucrat b("Jeff--B", 25);
+	Bureaucrat d("Elon--M", 140);
+	Bureaucrat g("Bill--G", 4);
 
-		try 
-		{
-			f.beSigned(b);
-			std::cout << b;
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+	ShrubberyCreationForm AsciiTree("merry christmas");
+	ShrubberyCreationForm hello("hello");
+	b.executeForm(AsciiTree);
+	d.signForm(hello);
+	d.executeForm(hello);
+	g.executeForm(hello);
 
-		Bureaucrat b2 = Bureaucrat("Hello_world", 50);
-		Form f2 = Form("test", 51, 51);
+	try
+	{
+		hello.execute(d);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
-		try 
-		{
-			f2.beSigned(b2);
-			b2.signForm(f2);
-			std::cout << b2 << std::endl;
-			std::cout << f2 << std::endl;
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
+	std::srand(time(0));
+	RobotomyRequestForm robot("Robotic");
+	b.executeForm(robot);
+	std::cout << b.getName() <<" ------signing for : ->>>>> " << robot.getName() << std::endl;
+	b.signForm(robot);
+	b.executeForm(robot);
+	try
+	{
+		d.signForm(robot);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	
+	PresidentialPardonForm last("Obama-B");
+	g.signForm(last);
+	b.executeForm(last);
+	g.executeForm(last);
 
-		Bureaucrat b3 = Bureaucrat("Hello_world", 50);
-		Form f3 = Form("test", 30, 30);
-
-		try 
-		{
-			//f3.beSigned(b3);
-			b3.signForm(f3);
-			std::cout << f3;
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-		
-		Bureaucrat b4 = Bureaucrat("Hello_world", 10);	
-		try 
-		{
-			//f3.beSigned(b3);
-			b4.signForm(f3);
-			std::cout << f3;
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-
-		Bureaucrat b5 = Bureaucrat("Hello_world", 100);	
-		try 
-		{
-			//f3.beSigned(b3);
-			b5.signForm(f3);
-			std::cout << f3;
-		}
-		catch(std::exception &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-		return (0);
+	return (0);
 }
 
