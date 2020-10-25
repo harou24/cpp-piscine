@@ -28,9 +28,9 @@ class Conversion
 		{
 			public:
 				ConversionErrorException(void);
-				ConversionErrorException(ConversionErrorException const & src);
+				ConversionErrorException(ConversionErrorException const & cpy);
 				virtual ~ConversionErrorException(void) throw();
-				ConversionErrorException & operator=(ConversionErrorException const & rhs);
+				ConversionErrorException & operator=(ConversionErrorException const & old);
 				virtual const char* what() const throw();
 		};
 

@@ -72,9 +72,9 @@ Conversion::operator	double( void ) const
 }
 
 Conversion::ConversionErrorException::ConversionErrorException( void ) {}
-Conversion::ConversionErrorException::ConversionErrorException( ConversionErrorException const &src ) { *this = src;}
+Conversion::ConversionErrorException::ConversionErrorException( ConversionErrorException const &cpy ) { *this = cpy;}
 Conversion::ConversionErrorException::~ConversionErrorException( void ) throw() {}
-Conversion::ConversionErrorException &Conversion::ConversionErrorException::operator=( ConversionErrorException const &cpy ) { (void)cpy; return *this; }
+Conversion::ConversionErrorException &Conversion::ConversionErrorException::operator=( ConversionErrorException const &old ) { (void)old; return *this; }
 
 const char* Conversion::ConversionErrorException::what() const throw() {
 	return "impossible";

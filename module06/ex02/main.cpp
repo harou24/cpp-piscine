@@ -9,13 +9,24 @@
 Base * generate(void)
 {
 	int	rand_nb = rand() % 3;
-	switch (rand_nb)
+	if (rand_nb == 0)
 	{
-		case 0: std::cout << "generate A" << std::endl; return (new A());
-		case 1: std::cout << "generate B" << std::endl; return (new B());
-		case 2: std::cout << "generate C" << std::endl; return (new C());
-		default: std::cout << "generate failed!" << std::endl; return (NULL);
+		std::cout << "generate A" << std::endl;
+		return (new A());
 	}
+	else if (rand_nb == 1)
+	{
+		std::cout << "generate B" << std::endl;
+		return (new B());
+	}
+	else if (rand_nb == 2)
+	{
+		std::cout << "generate C" << std::endl;
+		return (new C());
+	}
+	else
+		std::cout << "generate failed!" << std::endl; 
+	return (NULL);
 }
 
 void identify_from_pointer( Base * p )
