@@ -5,9 +5,9 @@
 typedef Form *(*t_create_form)(const std::string&);
 
 Intern::Intern() {}
-Intern::Intern(const Intern &) {return (*this)}
+Intern::Intern(const Intern &cpy) {*this = cpy;}
 Intern::~Intern() {}
-Intern& Intern::operator = (const Intern&){return (*this)}
+Intern& Intern::operator = (const Intern&){return (*this);}
 
 Form* make_shrubbery(std::string const& target) {
 	return new ShrubberyCreationForm(target);
