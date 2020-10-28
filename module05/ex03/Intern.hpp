@@ -2,20 +2,24 @@
 # define INTERN_H_
 
 # include <iostream>
-# include "Form.hpp"
+# include <exception>
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
+
 
 class Form;
 
-class Intern 
+class Form;
+class Intern
 {
-	public : 
-			Intern(void);
-			Intern(const Intern &cpy);
-			~Intern(void);
-
-			Intern& operator = (const Intern &old);
-
-			Form* makeForm(const std::string &formName, const std::string &target) const;
+			public:
+				Intern();
+				~Intern();
+				Form*	makeForm(const std::string& formname, const std::string& formtarget) const;
+			private:
+				Intern(const Intern& other);
+				Intern& operator=(const Intern& other);
 
 			class WrongFormException : public std::exception
 			{
