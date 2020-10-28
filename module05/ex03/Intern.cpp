@@ -2,37 +2,40 @@
 #include "Form.hpp"
 #include <string>
 
-Form* new_shrub(std::string const& target) {
+typedef Form *(*t_create_form)(const std::string&);
+
+Intern::Intern() {}
+Intern::Intern(const Intern &) {return (*this)}
+Intern::~Intern() {}
+Intern& Intern::operator = (const Intern&){return (*this)}
+
+Form* make_shrubbery(std::string const& target) {
 	return new ShrubberyCreationForm(target);
 }
 
-Form* new_pardon(std::string const& target) {
-	return new PresidentialPardonForm(target);
-}
-
-Form* new_robo(std::string const& target) {
+Form* make_robotomy(std::string const& target) {
 	return new RobotomyRequestForm(target);
 }
 
-typedef Form *(*t_make_funct)(const std::string&);
-
-Intern::Intern() {}
-
-Intern::~Intern() {}
+Form* make_presidential(std::string const& target) {
+	return new PresidentialPardonForm(target);
+}
 
 Form*	Intern::makeForm(const std::string& formname, const std::string& formtarget) const {
+	bool found = false;
 	const std::string types[3] = {	"Presidential Pardon",
 									"Robotomy Request",
 									"Shrubbery Creation"};
-	static t_make_funct makeFormFuncts[3] = { new_pardon, new_robo, new_shrub};
+	static t_create_form createForm[3] = { make_presidential, make_robotomy, make_shrubbery};
 
 	for (int i = 0; i < 3; i++) {
 		if (formname == types[i]) {
-			std::cout << "Intern creates " << formname << "." << std::endl;
-			return makeFormFuncts[i](formtarget);
+			found = true;
+			return createForm[i](formtarget);
 		}
 	}
-	std::cout << "No such formname found." << std::endl;
+	if (!found)
+		throw WrongFormException();
 	return NULL;
 }
 

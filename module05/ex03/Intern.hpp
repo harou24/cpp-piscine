@@ -7,31 +7,31 @@
 # include "RobotomyRequestForm.hpp"
 # include "PresidentialPardonForm.hpp"
 
-
 class Form;
 
-class Form;
 class Intern
 {
-			public:
-				Intern();
-				~Intern();
-				Form*	makeForm(const std::string& formname, const std::string& formtarget) const;
-			private:
-				Intern(const Intern& other);
-				Intern& operator=(const Intern& other);
+	public:
+		Intern(void);
+		Intern(const Intern& cpy);
+		~Intern(void);
+		
+		Intern& operator=(const Intern& old);
 
-			class WrongFormException : public std::exception
-			{
-				public :
-						WrongFormException(void);
-						WrongFormException(const WrongFormException &cpy);
-						~WrongFormException(void) throw();
+		Form*	makeForm(const std::string& name, const std::string& target) const;
 
-						WrongFormException& operator = (const WrongFormException &old);
 
-						virtual const char* what() const throw();
-			};
+		class WrongFormException : public std::exception
+		{
+			public :
+					WrongFormException(void);
+					WrongFormException(const WrongFormException &cpy);
+					~WrongFormException(void) throw();
+
+					WrongFormException& operator = (const WrongFormException &old);
+
+					virtual const char* what() const throw();
+		};
 };
 
 #endif
