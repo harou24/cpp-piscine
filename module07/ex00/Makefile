@@ -1,9 +1,7 @@
 NAME = test
 
-SRC = main.cpp\
-	  Cast.cpp
+SRC = whatever.cpp 
 
-INC = Cast.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
@@ -11,7 +9,7 @@ CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
 OBJ := $(SRC:.cpp=.o)
 all : $(NAME)
 
-$(NAME): $(OBJ) $(INC)
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $@
 
 $(OBJ): %.o: %.cpp
