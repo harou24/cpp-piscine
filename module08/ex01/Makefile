@@ -1,8 +1,9 @@
 NAME = test
 
-SRC = main.cpp
+SRC =   Span.cpp\
+	main.cpp
 
-INC = easyfind.hpp
+INC = Span.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
