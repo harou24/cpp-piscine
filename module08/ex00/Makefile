@@ -1,9 +1,8 @@
 NAME = test
 
-SRC = main.cpp\
-	  Cast.cpp
+SRC = main.cpp
 
-INC = Cast.hpp
+INC = easyfind.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
@@ -15,7 +14,7 @@ $(NAME): $(OBJ) $(INC)
 	$(CC) $(OBJ) -o $@
 
 $(OBJ): %.o: %.cpp
-	$(CC) -o $@ -c $<
+	$(CC) $(CC_FLAGS) -o $@ -c $<
 
 clean:
 	rm -f $(OBJ)
