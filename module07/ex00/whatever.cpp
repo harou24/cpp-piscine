@@ -1,6 +1,34 @@
 #include <iostream>
 #include <string>
 
+class Number {
+	private:
+ 		int _value;
+	public:
+		 Number(int n) : _value(n) {}
+
+		 bool operator == (Number const & rhs) { 
+		 	return (this->_value == rhs._value);}
+		 bool operator != (Number const & rhs) {
+		 	return (this->_value != rhs._value);}
+		 bool operator > (Number const & rhs) {
+		 	return (this->_value > rhs._value);}
+		 bool operator < (Number const & rhs) {
+		 	return (this->_value < rhs._value);}
+		 bool operator >= (Number const & rhs) {
+		 	return (this->_value >= rhs._value);}
+		 bool operator <= (Number const & rhs) {
+		 	return (this->_value <= rhs._value);}
+
+		int	getValue()const{return this->_value;}
+};
+
+ std::ostream& operator << (std::ostream &output, const Number &nb)
+ {
+	output << "Number->" << nb.getValue();
+	return output;
+ }
+
 template< typename T >
 void	swap(T& var1, T& var2) {
 	T tmp = var1;
@@ -9,13 +37,13 @@ void	swap(T& var1, T& var2) {
 }
 
 template< typename T>
-const T&	min(const T& var1, const T& var2) {
-	return (var1 <= var2 ? var2 : var1);
+const T&	min(T& var1, T& var2) {
+	return (var1 < var2 ? var1 : var2);
 }
 
 template< typename T>
-const T&	max(const T& var1, const T& var2) {
-	return (var1 >= var2 ? var2 : var1);
+const T&	max(T& var1, T& var2) {
+	return (var1 > var2 ? var1 : var2);
 }
 
 
@@ -61,6 +89,12 @@ int main(void)
 	std::cout << "min( c1, c2 ) = " << ::min( c1, c2 ) << std::endl;
 	std::cout << "max( c1, c2 ) = " << ::max( c1, c2 ) << std::endl;
 
-
+	std::cout << "--------------------------------------------" << std::endl;
+	Number nb1 = Number(5);
+	Number nb2 = Number(6);
+	::swap(nb1,nb2);
+	std::cout << "nb1 = " << nb1 << ", nb2 = " << nb2 << std::endl;
+	std::cout << "min( nb1, nb2 ) = " << ::min( nb1, nb2 ) << std::endl;
+	std::cout << "max( nb1, nb2 ) = " << ::max( nb1, nb2 ) << std::endl;
 	return (0);
 }
