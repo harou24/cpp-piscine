@@ -1,5 +1,34 @@
 #include "Array.hpp"
 
+class Number {
+	private:
+ 		int _value;
+	public:
+		Number(void){}
+		Number(int n) : _value(n) {}
+
+		 bool operator == (Number const & rhs) { 
+		 	return (this->_value == rhs._value);}
+		 bool operator != (Number const & rhs) {
+		 	return (this->_value != rhs._value);}
+		 bool operator > (Number const & rhs) {
+		 	return (this->_value > rhs._value);}
+		 bool operator < (Number const & rhs) {
+		 	return (this->_value < rhs._value);}
+		 bool operator >= (Number const & rhs) {
+		 	return (this->_value >= rhs._value);}
+		 bool operator <= (Number const & rhs) {
+		 	return (this->_value <= rhs._value);}
+
+		int	getValue()const{return this->_value;}
+};
+
+ std::ostream& operator << (std::ostream &output, const Number &nb)
+ {
+	output << "Number->" << nb.getValue();
+	return output;
+ }
+
 int main(void)
 {
 	Array<char> char_arr(4);
@@ -70,7 +99,17 @@ int main(void)
 	{
 		std::cout << "\n" << e.what() << std::endl;
 	}
-	std::cout << "\n";
+	std::cout << "-----------------------------" << std::endl;
 
+	Array<Number> nb_arr(4);
+	std::cout << "nb_arr array size : " <<nb_arr.size() << std::endl;
+	nb_arr[0] = Number(0);
+	nb_arr[1] = Number(42);
+	nb_arr[2] = Number(55);
+	nb_arr[3] = Number(12345);
+
+	for (int i = 0; i < nb_arr.size(); i++)
+		std::cout << nb_arr[i] << ",";
+	std::cout << std::endl;
 	return(0);
 }
