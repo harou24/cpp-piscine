@@ -1,6 +1,7 @@
 #include "Span.hpp"
 #include <stdexcept>
 #include <iterator>
+#include <iostream>
 
 Span::Span(void){}
 
@@ -18,15 +19,14 @@ void Span::addNumber(int nb)
 {
 	if (this->_set.size() == this->_nb_elem)
 		throw std::runtime_error("No place left in container !");
-	if (!this->_set.insert(nb).second)
-		throw std::runtime_error("NB already in the set !");
+	this->_set.insert(nb);
 }
 
 unsigned int Span::shortestSpan(void) const
 {
 	if (this->_set.size() < 2)
 		throw std::runtime_error("Not enough values in the set !");
-	std::set<int>::iterator second = this->_set.begin();
+	std::multiset<int>::iterator second = this->_set.begin();
 	second++;
 	return (*second - *(this->_set.begin()));
 }
@@ -35,14 +35,18 @@ unsigned int Span::longestSpan(void) const
 {
 	if (this->_set.size() < 2)
 		throw std::runtime_error("Not enough values in the set !");
-	std::set<int>::iterator last = this->_set.end();
+	std::multiset<int>::iterator last = this->_set.end();
 	last--;
 	return (*last)- *(this->_set.begin());
 }
 
-void Span::addRange(std::set<int>::iterator start, std::set<int>::iterator end)
+void Span::addRange(std::multiset<int>::iterator start, std::multiset<int>::iterator end)
 {
-	for (std::set<int>::iterator i = start; i != end; i++)
+	for (std::multiset<int>::iterator i = start; i != end; i++)
 		this->addNumber(*i);
 }
 
+std::multiset<int> & Span::getSet(void)
+{
+	return this->_set;
+}

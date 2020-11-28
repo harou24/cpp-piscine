@@ -7,12 +7,15 @@
 int main(void)
 {
 	srand(time(0));
-	std::set<int> l;
-	for (int i = 0; i <= 10000; i++)
-		l.insert(rand() % 100000);
-	Span s(10500);
+	std::multiset<int> l;
+	for (int i = 0; i < 10; i++)
+		l.insert(rand() % 10);
+	Span s(10);
 	s.addRange(l.begin(), l.end());
-	std::cout << s.shortestSpan() << std::endl;
-	std::cout << s.longestSpan() << std::endl;
+	std::multiset<int>::iterator itr;
+	for (itr = s.getSet().begin(); itr != s.getSet().end(); itr++)
+		std::cout << *itr << std::endl;
+	//std::cout << s.shortestSpan() << std::endl;
+	//std::cout << s.longestSpan() << std::endl;
 	return (0);
 }

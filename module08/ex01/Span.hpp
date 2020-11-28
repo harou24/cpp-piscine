@@ -6,7 +6,8 @@
 class Span {
 	private :
 		unsigned int 	_nb_elem;
-		std::set<int> 	_set;
+		std::multiset<int> 	_set;
+
 	public :
 		Span(void);
 		Span(unsigned int n);
@@ -20,6 +21,8 @@ class Span {
 		unsigned int 	longestSpan(void) const;
 
 		void		addRange(std::set<int>::iterator start, std::set<int>::iterator end);
+
+		std::multiset<int> &getSet(void);
 
 };
 
