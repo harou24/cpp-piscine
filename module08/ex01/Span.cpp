@@ -26,18 +26,20 @@ unsigned int Span::shortestSpan(void) const
 {
 	if (this->_set.size() < 2)
 		throw std::runtime_error("Not enough values in the set !");
-	std::multiset<int>::iterator second = this->_set.begin();
-	second++;
-	return (*second - *(this->_set.begin()));
+	unsigned int shortest = INT_MAX;
+	//std::vector<int> copy(this->_set.begin(). this->_set.end());
+
+		
+	return shortest;
 }
 
 unsigned int Span::longestSpan(void) const
 {
 	if (this->_set.size() < 2)
 		throw std::runtime_error("Not enough values in the set !");
-	std::multiset<int>::iterator last = this->_set.end();
-	last--;
-	return (*last)- *(this->_set.begin());
+	unsigned int longest = *std::max_element(this->_set.begin(), this->_set.end()) -
+							*std::min_element(this->_set.begin(), this->_set.end());
+	return longest;
 }
 
 void Span::addRange(std::multiset<int>::iterator start, std::multiset<int>::iterator end)

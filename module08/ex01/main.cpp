@@ -16,6 +16,7 @@ int main(void)
 	for (itr = s.getSet().begin(); itr != s.getSet().end(); itr++)
 		std::cout << *itr << std::endl;
 	//std::cout << s.shortestSpan() << std::endl;
+	std::cerr << "-------------\n";
 	//std::cout << s.longestSpan() << std::endl;
 	return (0);
 }
