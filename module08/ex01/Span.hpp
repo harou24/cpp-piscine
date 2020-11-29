@@ -1,12 +1,12 @@
 #ifndef SPAN_H_
 # define SPAN_H_
 
-#include <set>
+#include <vector>
 
 class Span {
 	private :
 		unsigned int 	_nb_elem;
-		std::multiset<int> 	_set;
+		std::vector<int> 	_set;
 
 	public :
 		Span(void);
@@ -20,10 +20,9 @@ class Span {
 		unsigned int 	shortestSpan(void) const;
 		unsigned int 	longestSpan(void) const;
 
-		void		addRange(std::set<int>::iterator start, std::set<int>::iterator end);
-
-		std::multiset<int> &getSet(void);
+		void		addRange(std::vector<int>::iterator start, std::vector<int>::iterator end);
+		std::vector<int> &getSet(void);
 
 };
-
+std::ostream& operator << (std::ostream& output, Span & sp);
 #endif
