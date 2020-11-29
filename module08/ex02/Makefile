@@ -1,9 +1,9 @@
 NAME = test
 
-SRC =   Span.cpp\
+SRC =   mutantstack.cpp\
 	main.cpp
 
-INC = Span.hpp
+INC = mutantstack.hpp
 
 CC = clang++
 CC_FLAGS = -std=c++98 -Wall -Werror -Wextra
